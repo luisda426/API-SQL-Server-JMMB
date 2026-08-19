@@ -1,5 +1,9 @@
 # Arquitectura Backend - Formulario Banco
 
+En este README observará una descripcion de la arquitectura completa de la API. Además, verá al final los requisitos y como instalar.
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+
 ## Descripción
 
 Este backend fue desarrollado con Node.js y Express para recibir, consultar y administrar la información del formulario web, almacenándola en Microsoft SQL Server.
@@ -17,84 +21,84 @@ Además de almacenar la información del formulario, el backend permite:
 
 # Estructura del proyecto
 
-api-sqlserver/
-│
-├── server.js
-│
-├── .env
-│
-├── uploads/
-│
-├── config/
-│   ├── database.js
-│   └── multer.js
-│
-├── controllers/
-│   ├── solicitudController.js
-│   ├── documentoController.js
-│   └── vinculacionClienteController.js
-│
-├── services/
-│   ├── solicitudService.js
-│   ├── datoPreferenciaService.js
-│   ├── datoClienteService.js
-│   ├── datoLaboralService.js
-│   ├── datoFatcaService.js
-│   ├── datoPepService.js
-│   ├── datoAdicionalService.js
-│   ├── datoCuestionarioService.js
-│   ├── datoCuestionario2Service.js
-│   ├── datoDeclaracionService.js
-│   ├── datoDocumentoService.js
-│   ├── documentoService.js
-│   └── vinculacionClienteService.js
-│
-├── routes/
-│   ├── solicitudes.js
-│   └── documentos.js
-│
-└── utils/
-    └── cleanData.js
+- api-sqlserver/
+- │
+- ├── server.js
+- │
+- ├── .env
+- │
+- ├── uploads/
+- │
+- ├── config/
+- │   ├── database.js
+- │   └── multer.js
+- │
+- ├── controllers/
+- │   ├── solicitudController.js
+- │   ├── documentoController.js
+- │   └── vinculacionClienteController.js
+- │
+- ├── services/
+- │   ├── solicitudService.js
+- │   ├── datoPreferenciaService.js
+- │   ├── datoClienteService.js
+- │   ├── datoLaboralService.js
+- │   ├── datoFatcaService.js
+- │   ├── datoPepService.js
+- │   ├── datoAdicionalService.js
+- │   ├── datoCuestionarioService.js
+- │   ├── datoCuestionario2Service.js
+- │   ├── datoDeclaracionService.js
+- │   ├── datoDocumentoService.js
+- │   ├── documentoService.js
+- │   └── vinculacionClienteService.js
+- │
+- ├── routes/
+- │   ├── solicitudes.js
+- │   └── documentos.js
+- │
+- └── utils/
+-     └── cleanData.js
 
 # Flujo de información
 
 Informacion normal 
 
-Frontend
-   │
-   ▼
-server.js
-   │
-   ▼
-Routes
-   │
-   ▼
-Controllers
-   │
-   ▼
-Services
-   │
-   ▼
-SQL Server
+- Frontend
+-    │
+-    ▼
+- server.js
+-    │
+-    ▼
+- Routes
+-    │
+-    ▼
+- Controllers
+-    │
+-    ▼
+- Services
+-    │
+-    ▼
+- SQL Server
 
 Carga de documentos
 
-Frontend
-   │
-   ▼
-POST /api/documentos
-   │
-   ▼
-Multer
-   │
-   ▼
-documentoController
-   │
-   ▼
-documentoService
-   │
-   ▼
-uploads/
+- Frontend
+-    │
+-    ▼
+- POST /api/documentos
+-    │
+-    ▼
+- Multer
+-    │
+-    ▼
+- documentoController
+-    │
+-    ▼
+- documentoService
+-    │
+-    ▼
+- uploads/
 
 ---
 
@@ -136,10 +140,10 @@ Configura Multer para gestionar los documentos enviados desde el frontend.
 
 Responsabilidades:
 
-Recibir archivos.
-Definir la carpeta temporal o definitiva de almacenamiento.
-Generar nombres para los archivos.
-Controlar el tamaño máximo permitido por archivo.
+- Recibir archivos.
+- Definir la carpeta temporal o definitiva de almacenamiento.
+- Generar nombres para los archivos.
+- Controlar el tamaño máximo permitido por archivo.
 
 ---
 
@@ -147,20 +151,20 @@ Controlar el tamaño máximo permitido por archivo.
 
 Las rutas definen los endpoints disponibles en la API y conectan cada petición con su controller correspondiente.
 
-Ejemplo:POST /api/solicitudes
-Crea una nueva solicitud completa.
+- POST /api/solicitudes
+- Crea una nueva solicitud completa.
 
-GET /api/solicitudes
-Obtiene el listado de solicitudes utilizado por el panel administrativo.
+- GET /api/solicitudes
+- Obtiene el listado de solicitudes utilizado por el panel administrativo.
 
-GET /api/solicitudes/:id
-Obtiene toda la información relacionada con una solicitud específica.
+- GET /api/solicitudes/:id
+- Obtiene toda la información relacionada con una solicitud específica.
 
-POST /api/solicitudes/:id/vinculacion
-Guarda la información de vinculación completada por el asesor para una solicitud específica.
+- POST /api/solicitudes/:id/vinculacion
+- Guarda la información de vinculación completada por el asesor para una solicitud específica.
 
-POST /api/documentos
-Recibe y almacena los documentos seleccionados por el cliente.
+- POST /api/documentos
+- Recibe y almacena los documentos seleccionados por el cliente.
 
 ---
 
@@ -378,33 +382,33 @@ De esta forma se evita que una solicitud quede parcialmente registrada.
 
 # Relación de tablas
 
-Solicitud
-│
-│ IdSolicitud
-│
-├── DatoPreferencia
-│
-├── PreferenciaEntidad
-│
-├── DatoCliente
-│
-├── DatoLaboral
-│
-├── DatoFatca
-│
-├── DatoPep
-│
-├── DatoAdicional
-│
-├── DatoCuestionario
-│
-├── DatoCuestionario2
-│
-├── DatoDeclaracion
-│
-├── DatoDocumento
-│
-└── DatosVinculacion
+- Solicitud
+- │
+- │ IdSolicitud
+- │
+- ├── DatoPreferencia
+- │
+- ├── PreferenciaEntidad
+- │
+- ├── DatoCliente
+- │
+- ├── DatoLaboral
+- │
+- ├── DatoFatca
+- │
+- ├── DatoPep
+- │
+- ├── DatoAdicional
+- │
+- ├── DatoCuestionario
+- │
+- ├── DatoCuestionario2
+- │
+- ├── DatoDeclaracion
+- │
+- ├── DatoDocumento
+- │
+- └── DatosVinculacion
 
 Todas las tablas relacionadas utilizan IdSolicitud como referencia directa o como identificador principal para asociar la información con la solicitud correspondiente.
 
@@ -412,44 +416,44 @@ Todas las tablas relacionadas utilizan IdSolicitud como referencia directa o com
 
 # Resumen del flujo
 
-Cliente completa formulario
-          │
-          ▼
-Frontend envía información
-          │
-          ▼
-POST /api/solicitudes
-          │
-          ▼
-Solicitud + tablas relacionadas
-          │
-          ▼
-SQL Server
-          │
-          ▼
-Administrador consulta solicitudes
-          │
-          ▼
-GET /api/solicitudes
-          │
-          ▼
-Administrador abre una solicitud
-          │
-          ▼
-GET /api/solicitudes/:id
-          │
-          ▼
-Administrador completa vinculación
-          │
-          ▼
-POST /api/solicitudes/:id/vinculacion
-          │
-          ▼
-DatosVinculacion
-          │
-          ├── Estado = Completado
-          │
-          └── FechaActualizacion
+- Cliente completa formulario
+-           │
+-           ▼
+- Frontend envía información
+-           │
+-           ▼
+- POST /api/solicitudes
+-           │
+-           ▼
+- Solicitud + tablas relacionadas
+-           │
+-           ▼
+- SQL Server
+-           │
+-           ▼
+- Administrador consulta solicitudes
+-           │
+-           ▼
+- GET /api/solicitudes
+-           │
+-           ▼
+- Administrador abre una solicitud
+-           │
+-           ▼
+- GET /api/solicitudes/:id
+-           │
+-           ▼
+- Administrador completa vinculación
+-           │
+-           ▼
+- POST /api/solicitudes/:id/vinculacion
+-           │
+-           ▼
+- DatosVinculacion
+-           │
+-           ├── Estado = Completado
+-           │
+-           └── FechaActualizacion
 
 
 # Requisitos
@@ -487,12 +491,12 @@ Entre las principales dependencias utilizadas se encuentran:
 
 En el archivo .env, cambiar los datos de cada uno de los parametros.
 
-DB_SERVER=localhost
-DB_PORT=1433
-DB_DATABASE=NombreBaseDatos
-DB_USER=usuario
-DB_PASSWORD=contraseña
-PORT=3000
+- DB_SERVER=localhost
+- DB_PORT=1433
+- DB_DATABASE=NombreBaseDatos
+- DB_USER=usuario
+- DB_PASSWORD=contraseña
+- PORT=3000
 
 ## Ejecutar el servidor
 
@@ -504,3 +508,6 @@ Servidor corriendo en http://localhost:3000
 
 ---
 
+# Codigo para SQL SERVER
+
+En el archivo sql-server-code.md esta el codigo para crear las tablas en el SQL server.
