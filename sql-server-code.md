@@ -9,12 +9,10 @@ GO
 CREATE TABLE DatoPreferencia
 (
     IdDatoPreferencia INT IDENTITY(1,1) PRIMARY KEY,
-
     IdSolicitud INT NOT NULL,
-
-    OficinaPreferencia NVARCHAR(100) NULL,
-
-    PrimeraVez BIT NULL,
+    BuroCredito BIT NOT NULL,
+    OficinaPreferencia NVARCHAR(100) NOT NULL,
+    PrimeraVez BIT NOT NULL,
 
     CONSTRAINT FK_DatoPreferencia_Solicitud
     FOREIGN KEY (IdSolicitud)
@@ -24,11 +22,8 @@ CREATE TABLE DatoPreferencia
 CREATE TABLE PreferenciaEntidad
 (
     IdPreferenciaEntidad INT IDENTITY(1,1) PRIMARY KEY,
-
     IdSolicitud INT NOT NULL,
-
     Entidad NVARCHAR(50) NOT NULL,
-
     TipoRelacion NVARCHAR(30) NOT NULL,
 
     CONSTRAINT FK_PreferenciaEntidad_Solicitud

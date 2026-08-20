@@ -22,12 +22,14 @@ const guardarDatoPreferencia = async (
       INSERT INTO DatoPreferencia
       (
         IdSolicitud,
+        BuroCredito,
         OficinaPreferencia,
         PrimeraVez
       )
       VALUES
       (
         @IdSolicitud,
+        @BuroCredito,
         @OficinaPreferencia,
         @PrimeraVez
       )
